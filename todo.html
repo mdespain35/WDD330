@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/todo.css">
     <title>To Do List</title>
 </head>
 <body>
@@ -11,19 +12,21 @@
        
     </header>
     <main>
-        <h1>Todos</h1>
-        <ul id='todo-list'></ul>
-        <div id='action-box'>
-            <p id='items-remaining'></p>
-            <button class='list-type' id="all-todos">All</button>
-            <button class='list-type' id="completed-todos">Completed</button>
-            <button class='list-type' id='incomplete-todos'>Incomplete</button>
+        <div id='todo-form'>
+            <h1>Todos</h1>
+            <ul id='todo-list'></ul>
+            <div id='action-box'>
+                <p id='items-remaining'></p>
+                <button class='list-type' id="all-todos">All</button>
+                <button class='list-type' id="completed-todos">Completed</button>
+                <button class='list-type' id='incomplete-todos'>Incomplete</button>
+            </div>
+            <div id=''>
+                <input id="todo-item" type="text" placeholder="Get groceries...">
+                <button id='add-todo'>+</button>
+            </div>
+            <script src='./js/ToDo.js'></script>
         </div>
-        <div id=''>
-            <input id="todo-item" type="text" placeholder="Get groceries...">
-            <button id='add-todo'>+</button>
-        </div>
-        <script src='./js/ToDo.js'></script>
     </main>
     
 </body>

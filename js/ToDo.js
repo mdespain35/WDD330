@@ -1,4 +1,5 @@
 const ul = document.querySelector('#todo-list');
+let currentPage = '';
 
 class ToDoModel {
     
@@ -21,7 +22,6 @@ let todoList = JSON.parse(localStorage.getItem('todo')) || [];
 
 class ToDo {
     constructor(content) {
-        this.type = 'todo';
         this.id = Date();
         this.content = content;
         this.completed = false;
@@ -33,52 +33,70 @@ class ToDo {
 function addToDo(content) {
     const todo = new ToDo(content);
     todoList.push(todo);
-    localStorage.setItem(todo.type, JSON.stringify(todoList));
+    localStorage.setItem('todo', JSON.stringify(todoList));
 }
 
 function addItemListener() {
-    const todo = document.getElementById('todo-item').value;
-    addToDo(todo);
+    const todo = document.getElementById('todo-item');
+    addToDo(todo.value);
     getIncompleteTotal();
-    console.log(todo);
-    
-    console.log(todoList);
+    todo.value = '';
+    refreshPage();
 
     //console.log(this.model);
 }
 
 function getAllToDo() {
-    let list = '';
     ul.innerHTML = '';
-
     todoList.forEach(todo => {
-        list += `<li id="${todo.id}"><input type="checkbox" value="${todo.id}">${todo.content}</li>`;
+        ul.appendChild(createToDoItem(todo));
+        if (todo.completed) {
+            document.getElementById(todo.id).setAttribute('class', 'completed');
+        }
     });
-    ul.innerHTML = list;
+    currentPage = '';
     getIncompleteTotal();
 }
 
 function getCompletedToDo() {
-    let list = '';
     ul.innerHTML = '';
     todoList.forEach(todo => {
         if (todo.completed) {
-            list += `<li id="${todo.id}"><input type="checkbox" value="${todo.id}">${todo.content}</li>`;
+            ul.appendChild(createToDoItem(todo));
         }
     });
-    ul.innerHTML = list;
+    currentPage = 'complete';
     getIncompleteTotal();
 }
 
+function createToDoItem(todo) {
+    let inp = document.createElement('input');
+    let button = document.createElement('button');
+    let li = document.createElement('li');
+
+    inp.setAttribute('type', 'checkbox');
+    inp.setAttribute('value', todo.id);
+    inp.addEventListener('click', swapStatus);
+
+    button.innerHTML = 'X';
+    button.setAttribute('value', todo.id);
+    button.addEventListener('click', deleteToDo);
+
+    li.setAttribute('id', todo.id);
+    li.appendChild(inp);
+    li.innerHTML += todo.content;
+    li.appendChild(button);
+    return li;
+}
+
 function getIncompleteToDo() {
-    let list = '';
     ul.innerHTML = '';
     todoList.forEach(todo => {
         if (!todo.completed) {
-            list += `<li id="${todo.id}"><input type="checkbox" value="${todo.id}">${todo.content}</li>`;
+            ul.appendChild(createToDoItem(todo));
         }
     });
-    ul.innerHTML = list;
+    currentPage = 'incomplete';
     getIncompleteTotal();
 }
 
@@ -101,9 +119,44 @@ function swapStatus(e) {
             console.log(todo.completed);
             todo.completed = !todo.completed;
             console.log(todo.completed);
+            localStorage.setItem('todo', JSON.stringify(todoList));
         }
     });
+    refreshPage();
 }
+
+function refreshPage() {
+    switch (currentPage) {
+        case 'incomplete':
+            getIncompleteToDo();
+            break;
+        case 'complete':
+            getCompletedToDo();
+            break;
+        default:
+            getAllToDo();
+            break;
+    }
+}
+
+function deleteToDo(e) {
+    let del = e.target.value;
+    todoList.splice(getIndex(del), 1);
+    refreshPage();
+}
+
+function getIndex(del) {
+    let index = -1;
+    for (let i = 0; i < todoList.length; i++){
+        if (todoList[i].id === del){
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+refreshPage();
 
 ul.addEventListener('click', swapStatus);
 

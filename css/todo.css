@@ -1,0 +1,24 @@
+#todo-form {
+    width: 20rem;
+    margin: 0 auto;
+}
+
+#todo-list {
+    padding-left: .25rem;
+    border: 1px solid navy;
+    background-color: lightblue;
+}
+
+#todo-list li {
+    list-style: none;
+    font-size: 125%;
+}
+
+#action-box p {
+    display: inline;
+}
+
+.completed {
+    color: red;
+    text-decoration: line-through;
+}
