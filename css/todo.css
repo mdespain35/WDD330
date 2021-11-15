@@ -1,6 +1,12 @@
 #todo-form {
     width: 20rem;
     margin: 0 auto;
+    border: 1px solid darkgray;
+    padding: 1rem;
+}
+
+#todo-form h1 {
+    text-align: center;
 }
 
 #todo-list {
@@ -10,8 +16,12 @@
 }
 
 #todo-list li {
+    background-color: white;
+    border: 1px solid navy;
     list-style: none;
     font-size: 125%;
+    padding: .25rem;
+    margin: .25rem;
 }
 
 #action-box p {
@@ -21,4 +31,31 @@
 .completed {
     color: red;
     text-decoration: line-through;
+}
+
+#todo-list li button {
+    float: right;
+    color: red;
+}
+
+#todo-list li input {
+    margin-right: .5rem;
+}
+
+#add-todo {
+    margin-left: .25rem;
+    font-weight: bold;
+    font-size: 115%;
+    color: darkgreen;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#additions {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+#todo-item {
+    padding: .5rem;
 }
