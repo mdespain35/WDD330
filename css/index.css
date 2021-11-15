@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+}
+
+#portfolio-items div {
+    border: 1px solid black;
+    margin: 0 auto; 
+    max-width: 90%;
+    padding: 1rem;
+}
+
+#portfolio-items div a {
+    text-decoration: none;
+    color: black;
+}
+
+#portfolio-items div a img {
+    max-width: 80%;
+}
+
+@media screen and (min-width: 32.5em) {
+    #portfolio-items div {
+        max-width: 25%;
+    }
+}
