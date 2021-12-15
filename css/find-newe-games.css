@@ -1,0 +1,153 @@
+body {
+    background-color: black;
+}
+
+main {
+    background-color: rgb(4, 46, 4);
+}
+
+#game-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5rem;
+}
+
+.game-card {
+    background-color: rgb(85, 85, 85);
+    color: whitesmoke;
+    text-align: center;
+    border: 2px solid rgb(101, 219, 101);
+    margin: .25rem;
+    padding: 1rem;
+}
+
+.game-card img {
+    max-width: 95%;
+    padding-top: .25rem; 
+}
+
+.game-card h3 {
+    font-size: 150%;
+}
+
+.game-card a {
+    width: 33%;
+    border: 2px dotted whitesmoke;
+    padding: .5rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: rgb(101, 219, 101);
+    color: rgb(4, 46, 4);
+}
+
+.game-card a:hover {
+    background-color: rgb(4, 46, 4);
+    color: rgb(101, 219, 101);
+}
+
+button {
+    width: 27%;
+    margin: .5rem;
+    padding: 1rem 0 1rem 0;
+    color: black;
+    background-color: lightgreen;
+    border-radius: 5px;
+    border: 3px solid rgb(85, 85, 85);
+    font-size: 115%;
+}
+
+button:active {
+    background-color: rgb(4, 46, 4);
+    color: rgb(101, 219, 101);
+}
+
+#buttons {
+    text-align: center;
+}
+
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0;
+    background-color: gold;
+    margin: 0;
+    padding: 1rem 0 1rem 0;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a:hover {
+    background-color: lightgreen;
+    border: 2px solid darkgrey;
+    border-radius: 25%;
+
+}
+
+nav ul li a {
+    padding: .25rem;
+    border: 2px solid gold;
+    color: black;
+    text-decoration: none;
+}
+
+#banner-bar {
+    color: whitesmoke;
+    text-align: center;
+}
+
+footer {
+    color: whitesmoke;
+    text-align: center;
+}
+
+footer a {
+    color: rgb(101, 219, 101);
+    text-decoration: none;
+}
+
+.active a {
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 32.5em) {
+    #game-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav ul li a {
+        padding: 1rem;
+    }
+
+    nav ul li a:hover {
+        background-color: rgb(101, 219, 101);
+        border: 2px solid darkgrey;
+        border-radius: 25%;
+    }
+}
+
+@media screen and (min-width: 78.125em) {
+    #game-info {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    nav ul li {
+        padding: .75rem 1.5rem .75rem 1.5rem;
+    }
+
+    nav ul li a {
+        font-size: 125%;
+    }
+
+    #banner-bar {
+        font-size: 125%;
+    }
+
+    #banner-bar h1 {
+        font-size: 315%;
+        margin-bottom: .5rem;
+    }
+}

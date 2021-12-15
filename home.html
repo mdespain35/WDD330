@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/find-newe-games.css">
+    <title>Home | Find Newe Game</title>
+</head>
+<body>
+    <header>
+        <div id="banner-bar">
+            <h1>Free Newe Games</h1>
+            <p>Where you can find a new game to play...for free!</p>
+        </div>
+       <nav>
+           <ul>
+               <li>
+                   <a href="home.html" class="active">Home</a>
+               </li>
+               <li>
+                   <a href="rpg.html">RPG</a>
+               </li>
+               <li>
+                   <a href="shooter.html">Shooter</a>
+               </li>
+               <li>
+                   <a href="strategy.html">Strategy</a>
+               </li>
+               <li>
+                   <a href="moba.html">MOBA</a>
+               </li>
+               <li>
+                   <a href="racing.html">Racing</a>
+               </li>
+           </ul>
+       </nav>
+    </header>
+    <main>
+        <div id="buttons">
+            <button type="button" value="alphabetical" id="alphabetical">ABC</button>
+            <button type="button" value="release-date" id="release-date">Newest</button>
+            <button type="button" value="popularity"id="popularity">Popular</button>
+        </div>
+
+        <div id="game-info"></div>
+
+        <input type="hidden" id="page-type" value="home">
+        <script src="js/gameinfo.js"></script>
+    </main>
+    <footer>
+        <p>All information provided by <a href="https://www.freetogame.com/">freetogame.com</a>.</p>
+    </footer>
+</body>
+</html>
